@@ -14,7 +14,7 @@ a histogram. This subject usually takes around 10,000 steps a day.
     steps_per_day=tapply(x$steps,x$date,sum,na.rm=T)
     hist(steps_per_day, breaks=16, main="Histogram of Steps Per Day",xlab="Total Steps",col="steel blue")
 
-![](html1_files/figure-markdown_strict/unnamed-chunk-2-1.png)
+![](PA1_project_files/figure-markdown_strict/unnamed-chunk-2-1.png)
 
     print(paste("Mean: ",mean(steps_per_day)))
 
@@ -37,7 +37,7 @@ could be a scheduled workout or a commute.
     mStepsPerInt=tapply(x$steps,x$interval,mean,na.rm=T)#Average steps per Interval
     xyplot(mStepsPerInt~as.numeric(names(mStepsPerInt)),type="l",xlab="Time Interval",ylab="Average Steps")
 
-![](html1_files/figure-markdown_strict/unnamed-chunk-3-1.png)
+![](PA1_project_files/figure-markdown_strict/unnamed-chunk-3-1.png)
 
     print(paste("Interval with most average steps: ",names(which.max(mStepsPerInt)))) #Interval with highest Mean
 
@@ -64,7 +64,7 @@ had around 0 steps in the previous histogram.
     hist(sumPerDay2,            #plot hist of sum per day again
          main="Histogram of Steps Per Day (w/Imputing)",xlab="Total Steps",col="steel blue",breaks=16)
 
-![](html1_files/figure-markdown_strict/unnamed-chunk-4-1.png)
+![](PA1_project_files/figure-markdown_strict/unnamed-chunk-4-1.png)
 
     print(paste("Mean Per Day: ",mean(sumPerDay2))) #average day
 
@@ -92,4 +92,4 @@ weekends.
     wkAg=aggregate(steps~interval+dayType,x,mean)
     with(wkAg,xyplot(steps~interval|dayType,type="l",lwd=1,layout=c(1,2)))
 
-![](html1_files/figure-markdown_strict/unnamed-chunk-5-1.png)
+![](PA1_project_files/figure-markdown_strict/unnamed-chunk-5-1.png)
